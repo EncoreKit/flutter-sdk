@@ -56,7 +56,11 @@ await Encore.shared.configure(
 Set up handlers before presenting offers:
 
 ```dart
-Encore.shared.onPurchaseRequest((productId, placementId) {
+Encore.shared.onPurchaseRequest((purchaseRequest) {
+  // Purchase Request includes:
+  // purchaseRequest.productId
+  // purchaseRequest.promoId
+  // purchaseRequest.placementId
   // Trigger purchase via your subscription manager (RevenueCat, etc.)
 });
 

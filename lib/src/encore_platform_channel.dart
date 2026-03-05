@@ -99,18 +99,23 @@ class EncorePlatformChannel {
         final productId = args['productId'] as String;
         final placementId = args['placementId'] as String;
         await _purchaseRequestHandler?.call(productId, placementId);
+        return null;
 
       case 'onPurchaseComplete':
         final args = Map<String, dynamic>.from(call.arguments as Map);
         final result = Map<String, dynamic>.from(args['result'] as Map);
         final productId = args['productId'] as String;
         _purchaseCompleteHandler?.call(result, productId);
+        return null;
 
       case 'onPassthrough':
         final args = Map<String, dynamic>.from(call.arguments as Map);
         final placementId = args['placementId'] as String;
         _passthroughHandler?.call(placementId);
+        return null;
+
+      default:
+        return null;
     }
-    return null;
   }
 }

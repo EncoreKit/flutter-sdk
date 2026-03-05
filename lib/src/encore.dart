@@ -1,5 +1,6 @@
 import 'encore_platform_channel.dart';
 import 'models/billing_purchase_result.dart';
+import 'models/purchase_request.dart';
 import 'models/log_level.dart';
 import 'models/presentation_result.dart';
 import 'models/user_attributes.dart';
@@ -75,13 +76,11 @@ class Encore {
   /// its flow (e.g., reconciling transactions, granting entitlements).
   ///
   /// ```dart
-  /// Encore.shared.onPurchaseRequest((productId, placementId) async {
-  ///   await purchases.purchase(productId);
+  /// Encore.shared.onPurchaseRequest((purchaseRequest) async {
+  ///   await purchases.purchase(purchaseRequest.productId);
   /// });
   /// ```
-  void onPurchaseRequest(
-    Future<void> Function(String productId, String placementId) handler,
-  ) {
+  void onPurchaseRequest(Future<void> Function(PurchaseRequest purchaseRequest) handler) {
     _channel.setOnPurchaseRequest(handler);
   }
 

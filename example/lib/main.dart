@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _initEncore() async {
     await Encore.shared.configure(
-      apiKey: 'pk_live_1ran4aj5ike2s201z28r5j76',
+      apiKey: 'YOUR_API_KEY',
       logLevel: LogLevel.debug,
     );
 
