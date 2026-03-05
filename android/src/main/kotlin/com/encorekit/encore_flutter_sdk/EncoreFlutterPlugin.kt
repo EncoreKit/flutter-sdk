@@ -153,10 +153,18 @@ class EncoreFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private fun registerOnPurchaseRequest(result: Result) {
         Encore.shared.onPurchaseRequest { purchaseRequest ->
             suspendCancellableCoroutine { continuation ->
+                // Reflection workaround: the published AAR has PurchaseRequest obfuscated by R8.
+                // Once a new Android SDK is published with the proguard fix, replace with
+                // purchaseRequest.productId / purchaseRequest.placementId directly.
+                val fields = purchaseRequest.javaClass.declaredFields
+                    .filter { it.type == String::class.java }
+                    .onEach { it.isAccessible = true }
+                val productId = fields.getOrNull(0)?.get(purchaseRequest) as? String ?: ""
+                val placementId = fields.getOrNull(1)?.get(purchaseRequest) as? String ?: ""
                 scope.launch {
                     channel.invokeMethod("onPurchaseRequest", mapOf(
-                        "productId" to purchaseRequest.productId,
-                        "placementId" to purchaseRequest.placementId,
+                        "productId" to productId,
+                        "placementId" to placementId,
                     ), object : MethodChannel.Result {
                         override fun success(result: Any?) {
                             continuation.resume(Unit)
