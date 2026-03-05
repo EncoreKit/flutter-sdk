@@ -1,10 +1,10 @@
 {
   "roots": [
-    "encore_flutter_sdk"
+    "encore"
   ],
   "packages": [
     {
-      "name": "encore_flutter_sdk",
+      "name": "encore",
       "version": "1.0.0",
       "dependencies": [
         "flutter"

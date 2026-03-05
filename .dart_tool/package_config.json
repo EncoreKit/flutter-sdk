@@ -158,7 +158,7 @@
       "languageVersion": "3.5"
     },
     {
-      "name": "encore_flutter_sdk",
+      "name": "encore",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"

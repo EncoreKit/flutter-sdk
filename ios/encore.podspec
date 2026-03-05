@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = 'encore_flutter_sdk'
+  s.name             = 'encore'
   s.version          = '1.0.0'
   s.summary          = 'Flutter plugin wrapping the native Encore iOS SDK.'
   s.description      = 'Bridges the Encore iOS SDK (EncoreKit) to Flutter via platform channels.'

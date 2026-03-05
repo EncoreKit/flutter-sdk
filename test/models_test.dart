@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:encore_flutter_sdk/encore_flutter_sdk.dart';
+import 'package:encore/encore.dart';
 
 void main() {
   group('PresentationResult', () {

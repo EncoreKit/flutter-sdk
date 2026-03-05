@@ -1,4 +1,4 @@
-name: encore_flutter_sdk
+name: encore
 description: >-
   Flutter plugin wrapping the native Encore iOS and Android SDKs for
   monetization, offers, and entitlements. All offer UI is rendered natively

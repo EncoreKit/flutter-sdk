@@ -8,10 +8,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  encore_flutter_sdk:
-    git:
-      url: https://github.com/EncoreKit/encore-flutter-sdk.git
-      ref: main
+  encore: ^1.0.0
 ```
 
 ### iOS
@@ -43,7 +40,7 @@ Minimum SDK: **21**.
 Call once early in your app lifecycle (e.g., in `main()` or your root widget's `initState`):
 
 ```dart
-import 'package:encore_flutter_sdk/encore_flutter_sdk.dart';
+import 'package:encore/encore.dart';
 
 await Encore.shared.configure(
   apiKey: 'your_api_key',

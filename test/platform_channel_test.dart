@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:encore_flutter_sdk/encore_flutter_sdk.dart';
-import 'package:encore_flutter_sdk/src/encore_platform_channel.dart';
+import 'package:encore/encore.dart';
+import 'package:encore/src/encore_platform_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
