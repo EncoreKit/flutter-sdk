@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'models/presentation_result.dart';
+import 'models/purchase_request.dart';
 
 /// Low-level platform channel bridge to the native Encore SDKs.
 ///
@@ -14,7 +15,7 @@ import 'models/presentation_result.dart';
 class EncorePlatformChannel {
   static const _channel = MethodChannel('com.encorekit/encore');
 
-  Future<void> Function(String productId, String placementId)? _purchaseRequestHandler;
+  Future<void> Function(PurchaseRequest request)? _purchaseRequestHandler;
   Function(Map<String, dynamic> result, String productId)?
       _purchaseCompleteHandler;
   Function(String placementId)? _passthroughHandler;
@@ -66,7 +67,7 @@ class EncorePlatformChannel {
   // -- Handler registration (Dart -> Native, on demand) --
 
   void setOnPurchaseRequest(
-    Future<void> Function(String productId, String placementId)? handler,
+    Future<void> Function(PurchaseRequest request)? handler,
   ) {
     _purchaseRequestHandler = handler;
     if (handler != null) {
@@ -96,9 +97,8 @@ class EncorePlatformChannel {
     switch (call.method) {
       case 'onPurchaseRequest':
         final args = Map<String, dynamic>.from(call.arguments as Map);
-        final productId = args['productId'] as String;
-        final placementId = args['placementId'] as String;
-        await _purchaseRequestHandler?.call(productId, placementId);
+        final request = PurchaseRequest.fromMap(args);
+        await _purchaseRequestHandler?.call(request);
         return null;
 
       case 'onPurchaseComplete':

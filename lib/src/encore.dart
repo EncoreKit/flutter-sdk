@@ -80,7 +80,9 @@ class Encore {
   ///   await purchases.purchase(purchaseRequest.productId);
   /// });
   /// ```
-  void onPurchaseRequest(Future<void> Function(PurchaseRequest purchaseRequest) handler) {
+  void onPurchaseRequest(
+    Future<void> Function(PurchaseRequest request) handler,
+  ) {
     _channel.setOnPurchaseRequest(handler);
   }
 

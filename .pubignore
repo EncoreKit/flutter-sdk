@@ -1,0 +1,10 @@
+build/
+.github/
+flutter-sdk-prd.md
+PRD.md
+example/ios/Podfile.lock
+example/ios/Pods/
+example/ios/Runner.xcworkspace/
+example/ios/Runner/StoreKit.storekit
+example/android/.gradle/
+example/build/

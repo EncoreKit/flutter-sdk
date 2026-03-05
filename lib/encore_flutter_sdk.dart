@@ -16,4 +16,5 @@ export 'src/encore.dart' show Encore, PlacementBuilder;
 export 'src/models/billing_purchase_result.dart';
 export 'src/models/log_level.dart';
 export 'src/models/presentation_result.dart';
+export 'src/models/purchase_request.dart';
 export 'src/models/user_attributes.dart';

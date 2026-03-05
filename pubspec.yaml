@@ -1,7 +1,18 @@
 name: encore_flutter_sdk
-description: Flutter plugin wrapping the native Encore iOS and Android SDKs for monetization, offers, and entitlements.
+description: >-
+  Flutter plugin wrapping the native Encore iOS and Android SDKs for
+  monetization, offers, and entitlements. All offer UI is rendered natively
+  via StoreKit (iOS) and Play Billing (Android).
 version: 1.0.0
-homepage: https://github.com/EncoreKit/encore-flutter-sdk
+homepage: https://encorekit.com
+repository: https://github.com/EncoreKit/encore-flutter-sdk
+issue_tracker: https://github.com/EncoreKit/encore-flutter-sdk/issues
+
+topics:
+  - monetization
+  - in-app-purchase
+  - subscriptions
+  - offers
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
