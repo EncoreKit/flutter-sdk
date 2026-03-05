@@ -1,0 +1,28 @@
+PODS:
+  - encore_flutter_sdk (1.0.0):
+    - EncoreKit
+    - Flutter
+  - EncoreKit (1.4.3)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - encore_flutter_sdk (from `.symlinks/plugins/encore_flutter_sdk/ios`)
+  - EncoreKit (from `../../../encore-swift-sdk`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  encore_flutter_sdk:
+    :path: ".symlinks/plugins/encore_flutter_sdk/ios"
+  EncoreKit:
+    :path: "../../../encore-swift-sdk"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  encore_flutter_sdk: 871aa2e043369d25df4bea8190927705e61468e1
+  EncoreKit: 7a198d17af4f1e9e7185d3bb6518ce7fa807cdb3
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+
+PODFILE CHECKSUM: 16fc3cd9a06cf0294ee4b60dbeef529f4a229c74
+
+COCOAPODS: 1.16.2
