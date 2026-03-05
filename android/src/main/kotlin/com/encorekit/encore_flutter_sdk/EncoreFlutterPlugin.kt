@@ -153,15 +153,10 @@ class EncoreFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private fun registerOnPurchaseRequest(result: Result) {
         Encore.shared.onPurchaseRequest { purchaseRequest ->
             suspendCancellableCoroutine { continuation ->
-                val fields = purchaseRequest.javaClass.declaredFields
-                    .filter { it.type == String::class.java }
-                    .onEach { it.isAccessible = true }
-                val productId = fields.getOrNull(0)?.get(purchaseRequest) as? String ?: ""
-                val placementId = fields.getOrNull(1)?.get(purchaseRequest) as? String ?: ""
                 scope.launch {
                     channel.invokeMethod("onPurchaseRequest", mapOf(
-                        "productId" to productId,
-                        "placementId" to placementId,
+                        "productId" to purchaseRequest.productId,
+                        "placementId" to purchaseRequest.placementId,
                     ), object : MethodChannel.Result {
                         override fun success(result: Any?) {
                             continuation.resume(Unit)
