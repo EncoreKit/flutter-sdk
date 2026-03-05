@@ -10,7 +10,7 @@
 /// await Encore.shared.identify(userId: 'user_123');
 /// final result = await Encore.shared.placement('cancel_flow').show();
 /// ```
-library encore;
+library;
 
 export 'src/encore.dart' show Encore, PlacementBuilder;
 export 'src/models/billing_purchase_result.dart';
