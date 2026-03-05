@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'EncoreKit', '~> 1.4'
+  s.dependency 'EncoreKit', '~> 1.4.22'
   s.platform         = :ios, '15.0'
   s.swift_version    = '5.9'
 
