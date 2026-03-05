@@ -30,7 +30,7 @@ target 'Runner' do
   use_frameworks!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-  pod 'EncoreKit', :git => 'https://github.com/EncoreKit/ios-sdk-binary.git', :tag => 'v1.4.20'
+  pod 'EncoreKit', :git => 'https://github.com/EncoreKit/ios-sdk-binary.git', :tag => 'v1.4.20', :inhibit_warnings => true
   target 'RunnerTests' do
     inherit! :search_paths
   end
