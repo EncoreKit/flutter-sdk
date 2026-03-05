@@ -113,12 +113,20 @@ public class EncoreFlutterPlugin: NSObject, FlutterPlugin {
     // MARK: - On-Demand Handler Registration
 
     private func registerOnPurchaseRequest(result: @escaping FlutterResult) {
-        Encore.shared.onPurchaseRequest { [weak self] productId, placementId in
+        Encore.shared.onPurchaseRequest { [weak self] purchaseRequest in
             try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
                 DispatchQueue.main.async {
-                    self?.channel.invokeMethod("onPurchaseRequest", arguments: [
-                        "productId": productId,
-                        "placementId": placementId ?? "",
+                    guard let self = self else {
+                        continuation.resume(throwing: NSError(
+                            domain: "EncoreFlutter", code: -1,
+                            userInfo: [NSLocalizedDescriptionKey: "Plugin detached"]
+                        ))
+                        return
+                    }
+                    self.channel.invokeMethod("onPurchaseRequest", arguments: [
+                        "productId": purchaseRequest.productId,
+                        "placementId": purchaseRequest.placementId ?? "",
+                        "promoOfferId": purchaseRequest.promoOfferId ?? "",
                     ]) { response in
                         if let error = response as? FlutterError {
                             continuation.resume(throwing: NSError(

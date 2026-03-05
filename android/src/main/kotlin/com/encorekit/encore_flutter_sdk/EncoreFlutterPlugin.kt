@@ -151,8 +151,13 @@ class EncoreFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     // -- On-Demand Handler Registration --
 
     private fun registerOnPurchaseRequest(result: Result) {
-        Encore.shared.onPurchaseRequest { productId, placementId ->
+        Encore.shared.onPurchaseRequest { purchaseRequest ->
             suspendCancellableCoroutine { continuation ->
+                val fields = purchaseRequest.javaClass.declaredFields
+                    .filter { it.type == String::class.java }
+                    .onEach { it.isAccessible = true }
+                val productId = fields.getOrNull(0)?.get(purchaseRequest) as? String ?: ""
+                val placementId = fields.getOrNull(1)?.get(purchaseRequest) as? String ?: ""
                 scope.launch {
                     channel.invokeMethod("onPurchaseRequest", mapOf(
                         "productId" to productId,

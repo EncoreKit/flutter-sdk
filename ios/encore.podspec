@@ -4,12 +4,11 @@ Pod::Spec.new do |s|
   s.summary          = 'Flutter plugin wrapping the native Encore iOS SDK.'
   s.description      = 'Bridges the Encore iOS SDK (EncoreKit) to Flutter via platform channels.'
   s.homepage         = 'https://github.com/EncoreKit/encore-flutter-sdk'
-  s.license          = { :type => 'MIT', :file => '../LICENSE' }
   s.author           = { 'Encore' => 'support@encorekit.com' }
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'EncoreKit'
+  s.dependency 'EncoreKit', '~> 1.4'
   s.platform         = :ios, '15.0'
   s.swift_version    = '5.9'
 
