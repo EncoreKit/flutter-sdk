@@ -1,3 +1,7 @@
+## 1.0.1
+
+* Add proprietary LICENSE file for pub.dev publishing.
+
 ## 1.0.0
 
 * Initial release.
