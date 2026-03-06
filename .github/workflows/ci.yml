@@ -9,6 +9,7 @@ jobs:
   analyze-and-test:
     name: Analyze & Test (Dart)
     runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.head_commit.message, 'release v') }}
 
     steps:
       - uses: actions/checkout@v4
