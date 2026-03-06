@@ -1,0 +1,28 @@
+PODS:
+  - encore (1.0.2):
+    - EncoreKit (~> 1.4)
+    - Flutter
+  - EncoreKit (1.4.29)
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - encore (from `.symlinks/plugins/encore/ios`)
+  - EncoreKit (from `/Users/junaidjaved/Documents/Yaw/Mono/encore-swift-sdk`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  encore:
+    :path: ".symlinks/plugins/encore/ios"
+  EncoreKit:
+    :path: "/Users/junaidjaved/Documents/Yaw/Mono/encore-swift-sdk"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  encore: a42e17d44e426269c34e41ce06923c08782aa5df
+  EncoreKit: fc4a3c1568b5dfd7dbdf2e948627d0043ec865f8
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+
+PODFILE CHECKSUM: 4cb5f8b738be835a2d873d8a743c336db1c85b07
+
+COCOAPODS: 1.16.2
