@@ -1,3 +1,7 @@
+## 1.0.4
+
+* TODO: Add release notes.
+
 ## 1.0.3
 
 * TODO: Add release notes.
