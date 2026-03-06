@@ -84,9 +84,12 @@ jobs:
     needs: [build-ios, build-android]
     permissions:
       id-token: write
+    environment: pub.dev
 
     steps:
       - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
 
       - uses: subosito/flutter-action@v2
         with:
@@ -97,7 +100,7 @@ jobs:
         run: flutter pub get
 
       - name: Publish
-        run: flutter pub publish --force
+        run: dart pub publish --force
 
   github-release:
     name: Create GitHub Release
